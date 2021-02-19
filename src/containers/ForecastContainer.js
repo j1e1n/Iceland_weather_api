@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import ForecastList from '../components/ForecastList';
 
 
 const ForecastContainer = () => {
 
     const [forecasts, setForecasts] = useState([]);
+    const [loaded, setLoaded] = useState(false);
 
     console.log(forecasts)
 
@@ -12,6 +14,7 @@ const ForecastContainer = () => {
         fetch('http://apis.is/weather/forecasts/en?stations=1,422')
         .then(res => res.json())
         .then(data => setForecasts(data))
+        .then(() => setLoaded(true))
     }
 
 
@@ -21,8 +24,12 @@ const ForecastContainer = () => {
 
 
     return(
-        <p>forecast container</p>
-
+        <>
+        <div className="forecast-container">
+        <ForecastList forecasts={forecasts} loaded={loaded}/>
+        </div>
+        </>
+        
     )
 }
 
