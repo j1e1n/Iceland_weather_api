@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import ForecastDetail from '../components/ForecastDetail';
 import ForecastList from '../components/ForecastList';
 
 
@@ -6,6 +7,7 @@ const ForecastContainer = () => {
 
     const [forecasts, setForecasts] = useState([]);
     const [loaded, setLoaded] = useState(false);
+    const [selectedTime, setSelectedTime] = useState(0)
 
     console.log(forecasts)
 
@@ -23,10 +25,16 @@ const ForecastContainer = () => {
     }, [])
 
 
+    const handleTimeClick = (forecast) => {
+        setSelectedTime(forecast)
+    }
+
+
     return(
         <>
         <div className="forecast-container">
-        <ForecastList forecasts={forecasts} loaded={loaded}/>
+        <ForecastList forecasts={forecasts} loaded={loaded} handleTimeClick={handleTimeClick}/>
+        <ForecastDetail selectedTime={selectedTime}/>
         </div>
         </>
         

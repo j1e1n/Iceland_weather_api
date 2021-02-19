@@ -3,7 +3,7 @@ import ForecastDetail from './ForecastDetail';
 
 
 
-const ForecastList = ({forecasts, loaded}) => {
+const ForecastList = ({forecasts, loaded, handleTimeClick}) => {
 
 
 
@@ -13,20 +13,11 @@ const ForecastList = ({forecasts, loaded}) => {
         )
     }
 
-    const timeListItems = forecasts.results.['0'].forecast.map((cast, index) => {
-        return <li key={index} >{cast.ftime.substr(11)}</li>
+    console.log("forecasts specific", forecasts.results.['0'].forecast.['0'].ftime)
+
+    const timeListItems = forecasts.results.['0'].forecast.map((report, index) => {
+        return <li key={index} onClick={() => {handleTimeClick(report)}}>{report.ftime}</li>
     });
-
-
-
-
-
-    console.log("forecasts results", forecasts.results.['0'].forecast.['0'].ftime)
-
-
-
-
-
 
 
     return(

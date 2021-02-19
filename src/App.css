@@ -1,15 +1,42 @@
-.App {
+.forecast-detail {
   text-align: center;
-}
 
-
-.forecast-container {
-  border: black solid 5px;
 }
 
 .forecast-list {
-  border: blue solid 5px;
+  margin: 10px;
+  padding: 0;
+  width: 200px;
+  background-color: whitesmoke;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  border: 3px solid gainsboro;
 }
+
+ul {
+  list-style: none;
+  
+}
+
+li {
+  
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.forecast-list li.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.forecast-list li:hover:not(.active) {
+  background-color: darkslategrey;
+  color: white;
+}
+
 
 
 .forecast-detail {
