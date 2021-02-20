@@ -13,9 +13,9 @@ const ForecastList = ({forecasts, loaded, handleTimeClick}) => {
         )
     }
 
-    console.log("forecasts specific", forecasts.results.['0'].forecast.['0'].ftime)
+    console.log("forecasts specific", forecasts.results.[0].forecast.[0].ftime)
 
-    const timeListItems = forecasts.results.['0'].forecast.map((report, index) => {
+    const timeListItems = forecasts.results.[0].forecast.map((report, index) => {
         return <li key={index} onClick={() => {handleTimeClick(report)}}>{report.ftime}</li>
     });
 

@@ -1,5 +1,9 @@
 .forecast-detail {
   text-align: center;
+  width: 500px;
+  margin-left: 250px;
+  margin-top: 20px;
+  border: slategray solid 2px;
 
 }
 
@@ -12,6 +16,10 @@
   height: 100%;
   overflow: auto;
   border: 3px solid gainsboro;
+}
+
+.forecast-list > h1 {
+  text-align: center;
 }
 
 ul {
@@ -27,19 +35,10 @@ li {
   text-decoration: none;
 }
 
-.forecast-list li.active {
-  background-color: #4CAF50;
-  color: white;
-}
+
 
 .forecast-list li:hover:not(.active) {
-  background-color: darkslategrey;
+  background-color: steelblue;
   color: white;
-}
-
-
-
-.forecast-detail {
-  border: red solid 5px;
 }
 
