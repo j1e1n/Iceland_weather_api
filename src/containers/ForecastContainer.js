@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import AkureyriForecastList from '../components/AkureyriForecastList';
 import CitySelector from '../components/CitySelector';
 import ForecastDetail from '../components/ForecastDetail';
-import ForecastList from '../components/ForecastList';
+import ReykjavíkForecastList from '../components/ReykjavíkForecastList';
+
 
 
 const ForecastContainer = () => {
@@ -11,8 +13,6 @@ const ForecastContainer = () => {
     const [selectedTime, setSelectedTime] = useState(0)
     const [city, setCity] = useState(null)
 
-    console.log("city is", city)
-    console.log(forecasts)
 
     const getForecasts = () => {
         console.log("getting forecasts");
@@ -28,42 +28,55 @@ const ForecastContainer = () => {
     }, [])
 
 
-    const handleTimeClick = (forecast) => {
-        setSelectedTime(forecast)
+
+    const handleTimeClick = (report) => {
+        setSelectedTime(report)
     }
 
 
     const selectReykjavik = () => {
         setCity(forecasts.results[0].name)
+        setSelectedTime(0)
     }
 
     const selectAkureyri = () => {
         setCity(forecasts.results[1].name)
+        setSelectedTime(0)
     }
 
-
-
-
-    
-
-    if(!loaded){
-        return(
-            <p>loading.....</p>
+    if (city === 'Reykjavík') {
+        return (
+            <>
+            <div className="forecast-container">
+            <CitySelector selectReykjavik={selectReykjavik} selectAkureyri={selectAkureyri}/>
+            <h1>{city}</h1>
+            <ReykjavíkForecastList forecasts={forecasts} loaded={loaded} handleTimeClick={handleTimeClick} />
+            <ForecastDetail selectedTime={selectedTime} loaded={loaded}/>
+            </div>
+            </>
+        )
+    } else if(city === 'Akureyri'){
+        return (
+            <>
+            <div className="forecast-container">
+            <CitySelector selectReykjavik={selectReykjavik} selectAkureyri={selectAkureyri}/>
+            <h1>{city}</h1>
+            <AkureyriForecastList forecasts={forecasts} loaded={loaded} handleTimeClick={handleTimeClick} />
+            <ForecastDetail selectedTime={selectedTime} loaded={loaded}/>
+            </div>
+            </>
+        )
+    } else {
+        return (
+            <>
+            <div className="forecast-container">
+            <CitySelector selectReykjavik={selectReykjavik} selectAkureyri={selectAkureyri}/>
+            <h1>Please select a city.</h1>
+            </div>
+            </>
         )
     }
 
-
-    return(
-        <>
-        <div className="forecast-container">
-        <CitySelector selectReykjavik={selectReykjavik} selectAkureyri={selectAkureyri}/>
-        <h1>{city}</h1>
-        <ForecastList forecasts={forecasts} loaded={loaded} handleTimeClick={handleTimeClick}/>
-        <ForecastDetail selectedTime={selectedTime} loaded={loaded}/>
-        </div>
-        </>
-        
-    )
 }
 
 
