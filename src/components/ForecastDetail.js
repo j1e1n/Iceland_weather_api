@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ForecastDetail = ({selectedTime, loaded}) => {
+const ForecastDetail = ({selectedTime}) => {
 
     console.log("selected time is ", selectedTime)
 

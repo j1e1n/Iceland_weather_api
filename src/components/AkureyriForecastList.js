@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Line } from 'react-chartjs-2';
 
 const AkureyriForecastList = ({forecasts, loaded, handleTimeClick}) => {
 
@@ -9,19 +9,58 @@ const AkureyriForecastList = ({forecasts, loaded, handleTimeClick}) => {
         )
     }
 
-        const timeListItems = forecasts.results.[1].forecast.map((report, index) => {
-            return <li key={index} onClick={() => {handleTimeClick(report)}}>{report.ftime}</li>
+    const timeListItems = forecasts.results.[1].forecast.map((report, index) => {
+        return <li key={index} onClick={() => {handleTimeClick(report)}}>{report.ftime}</li>
         })
+
+
+    const timeLabels = forecasts.results.[1].forecast.slice(0, 49).map((report, index) => {
+        return report.ftime.substr(0, 16)} )
+
+
+    const temperatureData = forecasts.results.[1].forecast.slice(0, 49).map((report, index) => {
+        return report.T} )
+
     
+    const chartData = {
+        labels: timeLabels,
+        datasets: [
+            {
+            label: 'Temperature',
+            fill: false,
+            lineTension: 0.5,
+            backgroundColor: 'rgba(75,192,192,1)',
+            borderColor: 'rgba(0,0,0,1)',
+            borderWidth: 2,
+            data: temperatureData
+            }
+        ]
+        }
     
 
     return(
         <>
         <div className="forecast-list">
-        <h3>Click a time to see the forecast</h3>
+        <h3>Select a time</h3>
             <ul>
                 {timeListItems}
             </ul>
+        </div>
+        <div className="chart">
+            <Line
+            data={chartData}
+            options={{
+                title:{
+                display:true,
+                text:'2 Day Temperature Chart',
+                fontSize:20
+                },
+                legend:{
+                display:true,
+                position:'right'
+                }
+            }}
+            />
         </div>
         </>
     )

@@ -44,6 +44,7 @@ const ForecastContainer = () => {
         setSelectedTime(0)
     }
 
+    
     if (city === 'Reykjavík') {
         return (
             <>
@@ -63,6 +64,7 @@ const ForecastContainer = () => {
             <h1>{city}</h1>
             <AkureyriForecastList forecasts={forecasts} loaded={loaded} handleTimeClick={handleTimeClick} />
             <ForecastDetail selectedTime={selectedTime} loaded={loaded}/>
+            
             </div>
             </>
         )
