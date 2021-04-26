@@ -1,4 +1,4 @@
-A weekend homework assignment for CodeClan with the goal of dreating a React app with requests.
+A weekend homework assignment for CodeClan with the goal of creating a React app with requests.
 
 ## Learning Objectives
 * Be able to create a multi-component web application, with react
