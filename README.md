@@ -1,3 +1,29 @@
+A weekend homework assignment for CodeClan with the goal of dreating a React app with requests.
+
+## Learning Objectives
+* Be able to create a multi-component web application, with react
+* Be able to make API requests to load JSON data into your application
+
+# Brief
+
+MVP
+* The application should display data from an API request.
+* The application should have a clear separation of concerns (multiple components)
+* Take input from the user to update the page. You could update the page by filtering or manipulating the data on user interaction, or you might make further API requests to load more data that is then displayed.
+
+
+Extensions
+* Looking into a library to visual the data.
+
+* Leaflet is an open-source library for rendering maps
+* Google Charts is a library for rendering charts and graphs
+* Canvas is a drawing surface for JavaScript.
+
+You will need to use the library's documentation to integrate it into your application.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
